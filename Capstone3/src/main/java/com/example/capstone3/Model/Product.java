@@ -38,4 +38,9 @@ public class Product {
     @JsonIgnore
     @JoinColumn(name = "supplier_id",referencedColumnName = "id")
     private Supplier supplier;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "reports_id",referencedColumnName = "id")
+    private Reports reports;
 }

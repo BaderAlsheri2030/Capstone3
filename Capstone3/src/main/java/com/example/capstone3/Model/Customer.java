@@ -48,4 +48,10 @@ public class Customer {
     @JsonIgnore
     @JoinColumn(name = "sales_id",referencedColumnName = "id")
     private Sales sales;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "reports_id",referencedColumnName = "id")
+    private Reports reports;
+
 }

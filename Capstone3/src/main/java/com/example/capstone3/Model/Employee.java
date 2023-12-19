@@ -48,4 +48,11 @@ public class Employee {
     @JsonIgnore
     @JoinColumn(name = "expenses_id",referencedColumnName = "id")
     private Expenses expenses;
+
+
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "reports_id",referencedColumnName = "id")
+    private Reports reports;
 }

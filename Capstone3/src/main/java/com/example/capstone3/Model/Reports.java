@@ -9,12 +9,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Set;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Setter
 @Getter
 public class Reports {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -26,12 +29,40 @@ public class Reports {
     private LocalDate date;
     @NotEmpty
     @Column(columnDefinition = "varchar(100) not null")
-     private String Summary;
+    private String Summary;
     @NotEmpty
     @Column(columnDefinition = "varchar(10) not null")
-     private  String Format;
+    private  String Format;
     @Column(columnDefinition = "varchar(50)")
-     private String note;
+    private String note;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "reports" )
+    private Set<Sales> sales;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "reports" )
+    private Set<Customer> customers;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "reports" )
+    private Set<Employee> employees;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "reports" )
+    private Set<Product> products;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "reports" )
+    private Set<Supplier> suppliers;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "reports" )
+    private Set<Expenses> expenses;
+
+
+
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "reports")
+    private Inventory inventory;
+
+
+
+
+
 
 
 }
