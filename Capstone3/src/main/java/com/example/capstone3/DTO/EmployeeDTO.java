@@ -15,22 +15,16 @@ public class EmployeeDTO {
     @NotNull
     private Integer company_id;
     @NotEmpty
-    @Column(columnDefinition = "varchar(10) not null")
     private String firstName;
     @NotEmpty
-    @Column(columnDefinition = "varchar(10) not null")
     private String lastName;
     @Email
     @NotEmpty
-    @Column(columnDefinition = "varchar(30) not null unique")
     private String email;
     @NotEmpty
-    @Column(columnDefinition = "varchar(10) not null")
     private String phone;
     @NotEmpty
-    @Column(columnDefinition = "varchar(10)")
     private String Position;
     @NotNull
-    @Column(columnDefinition = "int not null")
     private Integer salary;
 }

@@ -1,6 +1,6 @@
 package com.example.capstone3.Service;
 
-import com.example.capstone3.Api.ApiException;
+import com.example.capstone3.ApiException.ApiException;
 import com.example.capstone3.Model.Inventory;
 import com.example.capstone3.Repository.InventoryRepository;
 import lombok.RequiredArgsConstructor;

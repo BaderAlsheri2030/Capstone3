@@ -50,4 +50,10 @@ public class Employee {
     private Expenses expenses;
 
 
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "reports_id",referencedColumnName = "id")
+    private Reports reports;
+
 }

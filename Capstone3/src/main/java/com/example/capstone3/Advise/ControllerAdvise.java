@@ -1,7 +1,7 @@
 package com.example.capstone3.Advise;
 
 
-import com.example.capstone3.Api.ApiException;
+import com.example.capstone3.ApiException.ApiException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
