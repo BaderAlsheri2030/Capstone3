@@ -22,19 +22,23 @@ public class Invoice {
 
 
     @ManyToOne
-    @JoinColumn(name = "Customer_id", referencedColumnName = "id")
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     @JsonIgnore
     private Customer customer;
 
 
 
-    @NotNull
-    @Column(columnDefinition = "int not null")
-    private Integer quantity;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "invoice")
+    private Set<ProductDetails> productDetails;
+
+
+
     @Column
     private double totalPrice;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "invoice")
-    private Set<ProductDetails> productDetails;
+    @ManyToOne
+    @JoinColumn(name = "sales_id",referencedColumnName = "id")
+    @JsonIgnore
+    private Sales sales;
 
 }

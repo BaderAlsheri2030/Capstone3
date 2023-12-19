@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -44,16 +46,9 @@ public class Employee {
     @JoinColumn(name = "company_id",referencedColumnName = "id")
     private Company company;
 
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "expenses_id",referencedColumnName = "id")
-    private Expenses expenses;
 
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "employee")
+    private Set<Reports> reports;
 
-
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "reports_id",referencedColumnName = "id")
-    private Reports reports;
 
 }

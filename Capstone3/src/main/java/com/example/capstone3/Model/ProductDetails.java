@@ -16,11 +16,12 @@ import java.util.Set;
 @Setter
 @Getter
 public class ProductDetails {
+
     @Id
     @ManyToOne
     @PrimaryKeyJoinColumn(name = "product_id",referencedColumnName = "id")
     @JsonIgnore
-    private Product products;
+    private Product product;
 
 
     @ManyToOne
@@ -31,8 +32,6 @@ public class ProductDetails {
     @Column
     @NotNull
     private Integer quantity;
-
-
 
 
 

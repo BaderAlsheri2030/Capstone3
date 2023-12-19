@@ -28,9 +28,7 @@ public class Inventory {
     private Set<Supplier> supplier;
 
 
-    @OneToOne
-    @JoinColumn(name = "reports_id")
-    @JsonIgnore
-    private Reports reports;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "inventory")
+    private Set<Reports> reports;
 
 }

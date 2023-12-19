@@ -27,6 +27,7 @@ public class ProductController {
         productService.addProduct(product);
         return ResponseEntity.status(200).body("product added");
     }
+
     @PutMapping("/update/{id}")
     public ResponseEntity updateProduct(@PathVariable Integer id, @Valid @RequestBody Product product){
         productService.updateProduct(id,product);
@@ -37,5 +38,6 @@ public class ProductController {
     public ResponseEntity deleteProduct(Integer id){
         productService.deleteProduct(id);
         return ResponseEntity.status(200).body("product deleted");
+
     }
 }

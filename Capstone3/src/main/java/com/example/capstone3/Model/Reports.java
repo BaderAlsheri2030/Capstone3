@@ -1,5 +1,6 @@
 package com.example.capstone3.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -36,28 +37,43 @@ public class Reports {
     @Column(columnDefinition = "varchar(50)")
     private String note;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "reports" )
-    private Set<Sales> sales;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "reports" )
-    private Set<Customer> customers;
+    @ManyToOne
+    @JoinColumn(name = "sales_id",referencedColumnName = "id")
+    @JsonIgnore
+    private Sales sales;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "reports" )
-    private Set<Employee> employees;
+    @ManyToOne
+    @JoinColumn(name = "customer_id",referencedColumnName = "id")
+    @JsonIgnore
+    private Customer customer;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "reports" )
-    private Set<Product> products;
+    @ManyToOne
+    @JoinColumn(name = "employee_id",referencedColumnName = "id")
+    @JsonIgnore
+    private Employee employee;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "reports" )
-    private Set<Supplier> suppliers;
+    @ManyToOne
+    @JoinColumn(name = "product_id",referencedColumnName = "id")
+    @JsonIgnore
+    private Product product;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "reports" )
-    private Set<Expenses> expenses;
+    @ManyToOne
+    @JoinColumn(name = "supplier_id",referencedColumnName = "id")
+    @JsonIgnore
+    private Supplier supplier;
 
+    @ManyToOne
+    @JoinColumn(name = "expenses_id",referencedColumnName = "id")
+    @JsonIgnore
+    private Expenses expenses;
 
-
-    @OneToOne(cascade = CascadeType.ALL,mappedBy = "reports")
+    @ManyToOne
+    @JoinColumn(name = "inventory_id",referencedColumnName = "id")
+    @JsonIgnore
     private Inventory inventory;
+
+
 
 
 

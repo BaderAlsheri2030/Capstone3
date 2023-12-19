@@ -40,18 +40,13 @@ public class Supplier {
    @JsonIgnore
    @JoinColumn(name = "inventory_id",referencedColumnName = "id")
     private Inventory inventory;
+
+
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "supplier")
     private Set<Product> product;
 
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "expenses_id",referencedColumnName = "id")
-    private Expenses expenses;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "supplier")
+    private Set<Reports> reports;
 
-
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "reports_id",referencedColumnName = "id")
-    private Reports reports;
 
 }

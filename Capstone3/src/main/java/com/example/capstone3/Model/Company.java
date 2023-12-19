@@ -26,10 +26,10 @@ public class Company {
 
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
-    private Set<Customer> customer;
+    private Set<Customer> customers;
 
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
-    private Set<Employee> employee;
+    private Set<Employee> employees;
 
 }

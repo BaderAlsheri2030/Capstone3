@@ -48,13 +48,12 @@ public class Customer {
 
 
 
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "reports_id",referencedColumnName = "id")
-    private Reports reports;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
+    private Set<Reports> reports;
 
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
     private Set<Invoice> invoices;
+
 
 }

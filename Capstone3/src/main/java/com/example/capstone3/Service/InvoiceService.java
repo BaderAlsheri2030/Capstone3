@@ -33,7 +33,6 @@ public class InvoiceService {
         if (invoice1 == null){
             throw new ApiException("invalid invoice id");
         }
-        invoice1.();
         invoiceRepository.save(invoice1);
     }
 

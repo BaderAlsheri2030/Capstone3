@@ -27,4 +27,5 @@ public class EmployeeDTO {
     private String Position;
     @NotNull
     private Integer salary;
+
 }

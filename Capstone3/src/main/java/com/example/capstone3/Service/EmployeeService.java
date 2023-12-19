@@ -25,7 +25,7 @@ public class EmployeeService {
             throw new ApiException("Company not found");
         }
 
-        Employee employee = new Employee(null,employeeDTO.getFirstName(),employeeDTO.getLastName(),employeeDTO.getEmail(),employeeDTO.getPhone(),employeeDTO.getPosition(),employeeDTO.getSalary(),company,null,null);
+        Employee employee = new Employee(null,employeeDTO.getFirstName(),employeeDTO.getLastName(),employeeDTO.getEmail(),employeeDTO.getPhone(),employeeDTO.getPosition(),employeeDTO.getSalary(),company,null);
         employeeRepository.save(employee);
     }
     public void updateEmployee(Integer id,EmployeeDTO employeeDTO){

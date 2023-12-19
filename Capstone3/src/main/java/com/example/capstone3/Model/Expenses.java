@@ -21,16 +21,17 @@ public class Expenses {
     private Integer id;
     @Column(columnDefinition = "date")
     private LocalDate date;
+    @Column
+    private String salaries;
+    @Column
+    private String suppliers;
+    @Column
+    private double totalExpenses;
+
+
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "expenses")
-    private Set<Employee> employee;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "expenses")
-    private Set<Supplier> suppliers;
+    private Set<Reports> reports;
 
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "reports_id",referencedColumnName = "id")
-    private Reports reports;
 
-    private double totalExpenses = 0;
 }

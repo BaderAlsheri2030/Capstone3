@@ -24,10 +24,13 @@ public class Sales {
     @Column(columnDefinition = "date")
     private LocalDate Date;
 
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "reports_id",referencedColumnName = "id")
-    private Reports reports;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "sales")
+    private Set<Invoice> invoices;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "sales")
+    private Set<Reports> reports;
+
+
 
 
 }

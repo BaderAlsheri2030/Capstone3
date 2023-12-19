@@ -1,5 +1,6 @@
 package com.example.capstone3.Controller;
 
+import com.example.capstone3.DTO.CustomerDTO;
 import com.example.capstone3.Model.Customer;
 import com.example.capstone3.Service.CustomerService;
 import jakarta.validation.Valid;
@@ -18,12 +19,12 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.OK).body(customerService.getCustomers());
     }
     @PostMapping("/addCustomer")
-    public ResponseEntity addCustomer(@RequestBody @Valid Customer customer){
+    public ResponseEntity addCustomer(@RequestBody @Valid CustomerDTO customer){
         customerService.addCustomer(customer);
         return ResponseEntity.status(HttpStatus.OK).body("Customer add");
     }
     @PutMapping("/updateCustomer/{id}")
-    public ResponseEntity updateCustomer(@PathVariable Integer id,@RequestBody@Valid Customer customer){
+    public ResponseEntity updateCustomer(@PathVariable Integer id,@RequestBody@Valid CustomerDTO customer){
         customerService.updateCustomer(id, customer);
         return ResponseEntity.status(HttpStatus.OK).body("Customer updated");
     }

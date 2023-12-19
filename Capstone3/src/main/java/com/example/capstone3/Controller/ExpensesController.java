@@ -23,14 +23,4 @@ public class ExpensesController {
         expensesService.addExpenses(expenses);
         return ResponseEntity.status(HttpStatus.OK).body("Expenses add");
     }
-    @PutMapping("/updateExpenses/{id}")
-    public ResponseEntity updateExpenses(@PathVariable Integer id,@RequestBody@Valid Expenses expenses){
-        expensesService.updateExpenses(id, expenses);
-        return ResponseEntity.status(HttpStatus.OK).body("Expenses updated");
-    }
-    @DeleteMapping("/deleteExpenses/{id}")
-    public ResponseEntity deleteExpenses(@PathVariable Integer id){
-        expensesService.deleteExpenses(id);
-        return ResponseEntity.status(HttpStatus.OK).body("Expenses deleted");
-    }
 }
