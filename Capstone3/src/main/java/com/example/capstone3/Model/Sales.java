@@ -1,6 +1,5 @@
 package com.example.capstone3.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
@@ -17,25 +16,19 @@ import java.util.Set;
 @Getter
 @Entity
 public class Sales {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(columnDefinition = "date")
     private LocalDate Date;
     @NotEmpty
-    @Column(columnDefinition = "double not null")
-    private double Total_Amount;
+    @Column(columnDefinition = "int not null")
+    private Integer Total_Amount;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "sales")
     private Set<Product> product ;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "sales")
-    private Set<Customer> customer;
-
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "reports_id",referencedColumnName = "id")
-    private Reports reports;
+   @OneToMany(cascade = CascadeType.ALL,mappedBy = "sales")
+   private Set<Customer> customer;
 
 
 }

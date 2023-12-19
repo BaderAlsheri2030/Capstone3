@@ -1,24 +1,19 @@
-package com.example.capstone3.Model;
+package com.example.capstone3.DTO;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
+import java.util.function.IntToDoubleFunction;
+
+@Data
 @AllArgsConstructor
-@NoArgsConstructor
-@Entity
-@Setter
-@Getter
-public class Employee {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class EmployeeDTO {
+    @NotNull
+    private Integer company_id;
     @NotEmpty
     @Column(columnDefinition = "varchar(10) not null")
     private String firstName;
@@ -38,16 +33,4 @@ public class Employee {
     @NotNull
     @Column(columnDefinition = "int not null")
     private Integer salary;
-
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "company_id",referencedColumnName = "id")
-    private Company company;
-
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "expenses_id",referencedColumnName = "id")
-    private Expenses expenses;
-
-
 }

@@ -1,6 +1,5 @@
 package com.example.capstone3.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,11 +25,6 @@ public class Expenses {
     private Set<Employee> employee;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "expenses")
     private Set<Supplier> suppliers;
-
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "reports_id",referencedColumnName = "id")
-    private Reports reports;
 
     private double totalExpenses = 0;
 }

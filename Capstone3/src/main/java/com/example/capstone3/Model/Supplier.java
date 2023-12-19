@@ -35,23 +35,14 @@ public class Supplier {
     private String phone;
 
 // private String Payment_Terms;
-
    @ManyToOne
    @JsonIgnore
    @JoinColumn(name = "inventory_id",referencedColumnName = "id")
-    private Inventory inventory;
+   private inventory inventory;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "supplier")
     private Set<Product> product;
-
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "expenses_id",referencedColumnName = "id")
     private Expenses expenses;
-
-
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "reports_id",referencedColumnName = "id")
-    private Reports reports;
-
-}
+    }

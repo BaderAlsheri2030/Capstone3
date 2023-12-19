@@ -24,7 +24,7 @@ public class Company {
 
     private String vatNumber;
 
-
+    private String role;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
     private Set<Customer> customer;
 
