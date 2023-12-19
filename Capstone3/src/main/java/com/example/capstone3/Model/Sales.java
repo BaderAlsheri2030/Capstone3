@@ -23,14 +23,6 @@ public class Sales {
     private Integer id;
     @Column(columnDefinition = "date")
     private LocalDate Date;
-    @NotEmpty
-    @Column(columnDefinition = "double not null")
-    private double Total_Amount;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "sales")
-    private Set<Product> product ;
-
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "sales")
-    private Set<Customer> customer;
 
     @ManyToOne
     @JsonIgnore

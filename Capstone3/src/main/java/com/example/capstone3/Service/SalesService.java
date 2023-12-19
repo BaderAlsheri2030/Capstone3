@@ -24,12 +24,7 @@ public class SalesService {
     }
 
     public void updateSale(Integer id,Sales sales){
-        Sales sales1 = salesRepository.findSalesById(id);
-        if (sales1 == null){
-            throw new ApiException("Invalid sale Id");
-        }
-        sales1.setTotal_Amount(sales.getTotal_Amount());
-        salesRepository.save(sales1);
+
     }
 
     public void deleteSale(Integer id){

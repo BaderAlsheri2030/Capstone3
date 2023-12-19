@@ -15,26 +15,25 @@ import java.util.Set;
 @Entity
 @Setter
 @Getter
-public class Invoice {
+public class ProductDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @ManyToOne
+    @PrimaryKeyJoinColumn(name = "product_id",referencedColumnName = "id")
+    @JsonIgnore
+    private Product products;
 
 
     @ManyToOne
-    @JoinColumn(name = "Customer_id", referencedColumnName = "id")
+    @JoinColumn(name = "invoice_id", referencedColumnName = "id")
     @JsonIgnore
-    private Customer customer;
+    private Invoice invoice;
 
-
-
-    @NotNull
-    @Column(columnDefinition = "int not null")
-    private Integer quantity;
     @Column
-    private double totalPrice;
+    @NotNull
+    private Integer quantity;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "invoice")
-    private Set<ProductDetails> productDetails;
+
+
+
 
 }

@@ -9,12 +9,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Setter
 @Getter
 public class Product {
+
     @Id
     private Integer id;
     @NotEmpty
@@ -26,14 +29,12 @@ public class Product {
     @NotNull
     @Column(columnDefinition = "double not null")
     private Double price;
-    @NotNull
-    @Column(columnDefinition = "int not null")
-    private Integer Quantity;
 
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "sales_id",referencedColumnName = "id")
-    private Sales sales;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "product")
+    private Set<ProductDetails> productsDetails;
+
+
+
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "supplier_id",referencedColumnName = "id")
@@ -43,4 +44,6 @@ public class Product {
     @JsonIgnore
     @JoinColumn(name = "reports_id",referencedColumnName = "id")
     private Reports reports;
+
+
 }
