@@ -1,4 +1,4 @@
-1- Add invoice - roaa
+1- Add invoice - roaa,bader
 2-add sales - bader
 3-update sales- bader
 4-Add Expenses - bader
@@ -13,7 +13,7 @@
 13-Find expenses By Date Range - bader
 14- find expenses by Date - bader
 15- Find Invoices By Customer Id -roaa
-16- find invoices by total price - roaa
+16- find invoices by total price - bader
 17-Find Invoices By less than Total Price -bader
 18-Find Sales By Date After -bader
 19- Find Sales By Date Equal-bader 
